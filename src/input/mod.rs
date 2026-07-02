@@ -2,6 +2,7 @@ mod actions;
 pub(crate) mod gestures;
 pub(crate) mod keyboard;
 mod pointer;
+pub(crate) mod ext;
 
 use smithay::{
     backend::input::{

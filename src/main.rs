@@ -346,6 +346,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         )?;
     }
 
+    // Register for camcontrol HERE
+    if let Err(e) = crate::input::ext::register_external_input(
+        &event_loop.handle(), 
+        "127.0.0.1".to_string(), 
+        8765
+    ) {
+        tracing::warn!("external camcontrol input disabled: {e}");
+    }
+
     tracing::info!("Starting event loop — launch apps with: WAYLAND_DISPLAY={socket_name} <app>");
     event_loop.run(None, &mut data, |data| {
         backend::udev::render_if_needed(data);
