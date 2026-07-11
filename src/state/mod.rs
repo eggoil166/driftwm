@@ -598,6 +598,10 @@ pub struct DriftWm {
     /// touches a screen edge. Toggled by
     /// [`Action::ToggleCursorPan`](driftwm::config::Action::ToggleCursorPan).
     pub cursor_edge_pan: bool,
+
+    /// Last external joystick sample time, used to integrate velocity-like
+    /// camcontrol input without jumping on the first sample after reconnect.
+    pub(crate) ext_last_seen: Option<std::time::Instant>,
 }
 
 #[derive(Default)]

@@ -362,6 +362,7 @@ impl DriftWm {
             last_titlebar_click: None,
             errors: init_errors,
             cursor_edge_pan: edge_pan_cursor,
+            ext_last_seen: None,
         }
     }
 }
